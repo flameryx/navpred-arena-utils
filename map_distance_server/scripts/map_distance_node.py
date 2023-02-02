@@ -13,8 +13,9 @@ def print_map(map):
 class MapDistanceServer:
     def __init__(self):
         map_file = rospy.get_param("map_file")
-        distance_map_path = os.path.join(rospkg.RosPack().get_path("arena-simulation-setup"), "maps", map_file, "distance_map.png")
-
+        # distance_map_path = os.path.join(rospkg.RosPack().get_path("arena-simulation-setup"), "maps", map_file, "distance_map.png")
+        distance_map_path = os.path.join(rospkg.RosPack().get_path("navpred-data-recorder"), "pipelines", "original", "maps", map_file, "distance_map.png")
+        
         rospy.wait_for_service("/static_map")
 
         map_service = rospy.ServiceProxy("/static_map", GetMap)
